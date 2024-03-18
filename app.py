@@ -3,6 +3,11 @@ from lyzr_automata.ai_models.openai import OpenAIModel
 from lyzr_automata import Agent,Task
 from lyzr_automata.pipelines.linear_sync_pipeline import LinearSyncPipeline
 from PIL import Image
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+api = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(
     page_title="Lyzr IELTS Coaching Agent",
@@ -27,11 +32,11 @@ st.image(image, width=150)
 
 # App title and introduction
 st.title("Lyzr Lyzr IELTS Coaching Agent ")
-st.markdown("### Welcome to the Lyzr Lyzr IELTS Coaching Agent!")
+st.markdown("### Welcome to the Lyzr IELTS Coaching Agent!")
 st.markdown("Upload Your Topic and get Perfect Answers.")
 
 open_ai_text_completion_model = OpenAIModel(
-    api_key="enter Your api key",
+    api_key=api,
     parameters={
         "model": "gpt-4-turbo-preview",
         "temperature": 0.2,
