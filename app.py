@@ -31,7 +31,7 @@ image = Image.open("lyzr-logo.png")
 st.image(image, width=150)
 
 # App title and introduction
-st.title("Lyzr Lyzr IELTS Coaching Agent ")
+st.title("Lyzr IELTS Coaching Agent ")
 st.markdown("### Welcome to the Lyzr IELTS Coaching Agent!")
 st.markdown("Upload Your Topic and get Perfect Answers.")
 
@@ -50,7 +50,7 @@ ielts_agent = Agent(
     prompt_persona=f"As an examiner of IELTS system, you can suggest an answer about {topic} with more than 250 words and below 300 words regading to 7.5."
 )
 
-linkedin_post_task  =  Task(
+ielts_task  =  Task(
 			name="get Ielts study",
 			model=open_ai_text_completion_model,
 			agent=ielts_agent,
@@ -63,7 +63,7 @@ output = LinearSyncPipeline(
     completion_message="pipeline completed",
     tasks=[
 				# tasks are instance of Task class
-         linkedin_post_task # Task C
+         ielts_task # Task C
     ],
 ).run()
 
